@@ -1,10 +1,12 @@
-from flask import render_template, flash, redirect, make_response
+import StringIO
+import csv
+import string
+import random
+
+from flask import render_template, make_response
 from app import app
 from forms import PointsInRadiusForm
 import geo
-import StringIO
-import csv
-import string, random
 
 
 @app.route('/', methods=['GET', 'POST'])
