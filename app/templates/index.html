@@ -142,13 +142,9 @@
 
               createMarker(lat, lon, map);
 
-
               var url = '/raw-points/' + lat +'/' + lon + '/' + radius + '/' + points
               $.getJSON(url, function(data){
-
-
                   data.map(function(p){
-                      console.log(p);
                       createMarker(p.lat, p.lon, map);
                   });
               });
