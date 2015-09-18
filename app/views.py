@@ -14,7 +14,11 @@ import geo
 def index():
     form = PointsInRadiusForm()
     if form.validate_on_submit():
+        app.logger.info('user submitted: Latitude: {0}, Longitude: {1}, Radius: {2}, Number of Points: {3}'
+                        .format(form.latitude.data, form.longitude.data, form.radius.data, form.num_of_points.data))
         res = geo.points_on_a_radius(form.latitude.data, form.longitude.data, form.radius.data, form.num_of_points.data)
+        app.logger.info('obtained results')
+        app.logger.info('writing to csv')
         si = StringIO.StringIO()
         cw = csv.writer(si, )
         cw.writerow(['longitude', 'latitude'])
@@ -23,7 +27,9 @@ def index():
         output.headers["Content-Disposition"] = "attachment; filename=%s" % name_generator()
         output.headers["Content-type"] = "text/csv"
         output.headers["Location"] = "/"
+        app.logger.info('returning the results')
         return output
+    app.logger.info('serving up the homepage')
     return render_template('index.html', form=form)
 
 
