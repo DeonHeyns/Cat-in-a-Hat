@@ -1,5 +1,7 @@
 # Cat in a Hat
 
+<img src="https://raw.githubusercontent.com/DeonHeyns/Cat-in-a-Hat/master/app/static/img/cat-in-hat.jpg" width="300">
+
 ### Why
 The Cat in a Hat was created to make it easy to obtain latitude and longitude around a point
 
